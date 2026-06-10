@@ -35,7 +35,7 @@ Chrome extension (MV3): toolbar toggle for Focus Mode — silence site notificat
 | In scope | Push notifications, desktop alerts, in-page toasts (site-origin) |
 | Out of scope | Other apps — see backlog |
 
-### ~CR-003 · Data storage
+### CR-003 · Data storage
 
 **Decision:** Store all data in the user's browser — no backend server.
 
@@ -86,6 +86,16 @@ Chrome extension (MV3): toolbar toggle for Focus Mode — silence site notificat
 | Updates | State reflects immediately after toggle                      |
 
 
+### CR-007 · Schedule time format
+
+**Decision:** Use **24-hour format** (`HH:MM`) for schedule start/end inputs.
+
+| | |
+|---|---|
+| Example | `09:00` – `17:00` |
+| Storage | UTC (see backlog) |
+| Rationale | Unambiguous; no AM/PM confusion |
+
 ---
 
-Deferred tasks → see `[backlog.md](backlog.md)`
+Deferred tasks → see [`backlog.md`](backlog.md)

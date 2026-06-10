@@ -66,6 +66,30 @@ Living document. Updated step by step as points are confirmed.
 
 **Out of scope:** Desktop alerts.
 
+### Plan-004 · Scheduler
+
+**Decision:** Alarms for transitions + startup evaluation for missed edge cases.
+
+#### Alarms (`chrome.alarms`)
+
+| | |
+|---|---|
+| `focus-start` | Fire at schedule start (UTC `HH:MM`) → enable Focus Mode |
+| `focus-end` | Fire at schedule end → disable Focus Mode |
+| After each fire | Reschedule next occurrence (+24h) |
+
+#### Startup check (`background.js`)
+
+| | |
+|---|---|
+| Trigger | `chrome.runtime.onStartup` + service worker startup |
+| Action | `evaluateSchedule()` — if now is inside window → ON; else → OFF |
+| Respects | `manualOverride` flag (backlog) |
+
+**Handles:** Chrome closed at alarm time; user opens later still inside focus window.
+
+**Permissions (when implemented):** `alarms`
+
 ---
 
 ## Pending
